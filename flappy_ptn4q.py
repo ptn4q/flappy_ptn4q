@@ -16,7 +16,7 @@ def gameplay():
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             pygame.quit()
         # if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP) or event.type == pygame.MOUSEBUTTONDOWN:
-        #
+        # dhgdhgdfgdgfdgf
         else:
             p_x = int(scr_width / 5)
             p_y = int((scr_height - game_image['player'].get_height()) / 2)
@@ -38,3 +38,4 @@ if __name__ == "__main__":
 
     while True:
         gameplay()
+
