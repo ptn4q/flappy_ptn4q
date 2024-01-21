@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 from pygame.locals import *
+import time
 
 FPS = 32
 scr_width = 288
@@ -30,10 +31,11 @@ def menu():
 def gameplay(level_parameters):
     game_image['background'] = pygame.image.load(level_parameters[0]).convert()
     game_image['base'] = pygame.image.load(f'data/base{level_parameters[1]}.png').convert()
-    game_image['pipe'] = (pygame.transform.rotate(pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha(), 180),
-                          pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha())
+    game_image['pipe'] = (
+    pygame.transform.rotate(pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha(), 180),
+    pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha())
     game_image['player'] = pygame.image.load(f'data/ptn4q{level_parameters[1]}.png').convert_alpha()
-    #в зависимости от выбора уровня загружаются разные изображения
+    # в зависимости от выбора уровня загружаются разные изображения
     score = 0
     p_x = int(scr_width / 5)
     p_y = int(scr_width / 2)
@@ -51,8 +53,8 @@ def gameplay(level_parameters):
         {'x': scr_width + 200 + (scr_width / 2), 'y': pip2[1]['y']},
     ]
 
-    pip_v = level_parameters[2] #скорость передвижения труб
-    p_v = -8 #скорость передвижения птички
+    pip_v = level_parameters[2]  # скорость передвижения труб
+    p_v = -8  # скорость передвижения птички
     p_flap_v = -8
     p_flap = False
 
@@ -62,7 +64,7 @@ def gameplay(level_parameters):
                 pygame.quit()
                 sys.exit()
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP) \
-            or event.type == pygame.MOUSEBUTTONDOWN:
+                    or event.type == pygame.MOUSEBUTTONDOWN:
                 if p_y > 0:
                     p_v = p_flap_v
                     p_flap = True
@@ -115,13 +117,13 @@ def colliding(p_x, p_y, up_pipes, low_pipes):
         return True
 
     for pipe in up_pipes:
-        pip_h = game_image['pipe'][0].get_height()
-        if (p_y < pip_h + pipe['y'] and abs(p_x - pipe['x']) < game_image['pipe'][0].get_width()):
+        if (p_y < game_image['pipe'][0].get_height() + pipe['y']) and abs(p_x - pipe['x']) < \
+                game_image['pipe'][0].get_width() - 20:
             return True
 
     for pipe in low_pipes:
         if (p_y + game_image['player'].get_height() > pipe['y']) and abs(p_x - pipe['x']) < \
-                game_image['pipe'][0].get_width():
+                game_image['pipe'][0].get_width() - 20:
             return True
 
     return False
