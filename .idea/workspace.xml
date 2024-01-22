@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="сделал основную часть игры, осталось реализовать отображение счёта и музыку">
+    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="обнова">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/menu.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flappy_ptn4q.py" beforeDir="false" afterPath="$PROJECT_DIR$/flappy_ptn4q.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705840802349</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="обнова">
+      <created>1705849515095</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705849515095</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +247,7 @@
     <MESSAGE value="добавил меню, прогрев перед введением новых уровней - ???" />
     <MESSAGE value="код стал качественнее, добавил разные фоны для уровней" />
     <MESSAGE value="сделал основную часть игры, осталось реализовать отображение счёта и музыку" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделал основную часть игры, осталось реализовать отображение счёта и музыку" />
+    <MESSAGE value="обнова" />
+    <option name="LAST_COMMIT_MESSAGE" value="обнова" />
   </component>
 </project>

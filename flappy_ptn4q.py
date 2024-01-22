@@ -8,6 +8,7 @@ FPS = 32
 scr_width = 288
 scr_height = 512
 game_image = {}
+game_audio_sound = {}
 display_screen_window = pygame.display.set_mode((scr_width, scr_height))
 
 
@@ -53,8 +54,8 @@ def gameplay(level_parameters):
         {'x': scr_width + 200 + (scr_width / 2), 'y': pip2[1]['y']},
     ]
 
-    pip_v = level_parameters[2]  # скорость передвижения труб
-    p_v = -8  # скорость передвижения птички
+    pip_v = level_parameters[2]  # скорость передвижения труб(по x)
+    p_v = -8  # скорость передвижения птички(по y)
     p_flap_v = -8
     p_flap = False
 
@@ -68,17 +69,27 @@ def gameplay(level_parameters):
                 if p_y > 0:
                     p_v = p_flap_v
                     p_flap = True
+                    game_audio_sound['wing'].play()
 
         cr_tst = colliding(p_x, p_y, top_pips,
                            lower_pips)
         if cr_tst:
             return
+            # while True:
+            #     display_screen_window.blit(pygame.image.load('data/death_message.png').convert(), (0, 0))
+            #     for event in pygame.event.get():
+            #         if event.type == pygame.MOUSEBUTTONDOWN and 250 <= event.pos[1] <= 450:
+            #             if 0 <= event.pos[0] <= 114:
+            #                 gameplay(level_parameters)
+            #             elif 115 <= event.pos[0] <= 228:
+            #                 return
 
         p_mid_pos = p_x + game_image['player'].get_width() / 2
         for pipe in top_pips:
             pip_mid_pos = pipe['x'] + game_image['pipe'][0].get_width() / 2
-            if pip_mid_pos <= p_mid_pos < pip_mid_pos + 4:
+            if pip_mid_pos <= p_mid_pos < pip_mid_pos - pip_v:
                 score += 1
+                game_audio_sound['point'].play()
 
         if p_v < 10 and not p_flap:
             p_v += 1
@@ -108,22 +119,36 @@ def gameplay(level_parameters):
 
         display_screen_window.blit(game_image['base'], (0, scr_height * 0.8))
         display_screen_window.blit(game_image['player'], (p_x, p_y))
+
+        list_score_numbs = [int(x) for x in list(str(score))]
+        k = 0
+        for numb in list_score_numbs:
+            k += game_image['numbers'][numb].get_width()
+        score_x = (scr_width - k) / 2
+
+        for numb in list_score_numbs:
+            display_screen_window.blit(game_image['numbers'][numb], (score_x, scr_height * 0.12))
+            score_x += game_image['numbers'][numb].get_width()
+
         pygame.display.update()
         time_clock.tick(FPS)
 
 
 def colliding(p_x, p_y, up_pipes, low_pipes):
     if p_y > scr_height * 0.8 - 25 or p_y < 0:
+        game_audio_sound['hit'].play()
         return True
 
     for pipe in up_pipes:
         if (p_y < game_image['pipe'][0].get_height() + pipe['y']) and abs(p_x - pipe['x']) < \
                 game_image['pipe'][0].get_width() - 20:
+            game_audio_sound['hit'].play()
             return True
 
     for pipe in low_pipes:
         if (p_y + game_image['player'].get_height() > pipe['y']) and abs(p_x - pipe['x']) < \
                 game_image['pipe'][0].get_width() - 20:
+            game_audio_sound['hit'].play()
             return True
 
     return False
@@ -146,6 +171,22 @@ if __name__ == "__main__":
     pygame.init()
     time_clock = pygame.time.Clock()
     pygame.display.set_caption('Flappy ptn4q')
+    game_image['death_wind'] = pygame.image.load('data/death_message.png').convert_alpha()
+    game_image['numbers'] = (
+        pygame.image.load('data/0.png').convert_alpha(),
+        pygame.image.load('data/1.png').convert_alpha(),
+        pygame.image.load('data/2.png').convert_alpha(),
+        pygame.image.load('data/3.png').convert_alpha(),
+        pygame.image.load('data/4.png').convert_alpha(),
+        pygame.image.load('data/5.png').convert_alpha(),
+        pygame.image.load('data/6.png').convert_alpha(),
+        pygame.image.load('data/7.png').convert_alpha(),
+        pygame.image.load('data/8.png').convert_alpha(),
+        pygame.image.load('data/9.png').convert_alpha(),
+    )
+    game_audio_sound['hit'] = pygame.mixer.Sound('data/hit.wav')
+    game_audio_sound['point'] = pygame.mixer.Sound('data/point.wav')
+    game_audio_sound['wing'] = pygame.mixer.Sound('data/wing.wav')
 
     while True:
         if parameters := menu():
