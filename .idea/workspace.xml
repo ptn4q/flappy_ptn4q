@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="обнова">
+    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flappy_ptn4q.py" beforeDir="false" afterPath="$PROJECT_DIR$/flappy_ptn4q.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705849515095</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что">
+      <created>1705953236302</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1705953236302</updated>
+    </task>
+    <task id="LOCAL-00015" summary="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что">
+      <created>1705953246779</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705953246779</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,6 +261,7 @@
     <MESSAGE value="код стал качественнее, добавил разные фоны для уровней" />
     <MESSAGE value="сделал основную часть игры, осталось реализовать отображение счёта и музыку" />
     <MESSAGE value="обнова" />
-    <option name="LAST_COMMIT_MESSAGE" value="обнова" />
+    <MESSAGE value="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что" />
   </component>
 </project>

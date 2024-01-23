@@ -33,8 +33,8 @@ def gameplay(level_parameters):
     game_image['background'] = pygame.image.load(level_parameters[0]).convert()
     game_image['base'] = pygame.image.load(f'data/base{level_parameters[1]}.png').convert()
     game_image['pipe'] = (
-    pygame.transform.rotate(pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha(), 180),
-    pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha())
+        pygame.transform.rotate(pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha(), 180),
+        pygame.image.load(f'data/pipe{level_parameters[1]}.png').convert_alpha())
     game_image['player'] = pygame.image.load(f'data/ptn4q{level_parameters[1]}.png').convert_alpha()
     # в зависимости от выбора уровня загружаются разные изображения
     score = 0
