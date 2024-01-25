@@ -74,15 +74,19 @@ def gameplay(level_parameters):
         cr_tst = colliding(p_x, p_y, top_pips,
                            lower_pips)
         if cr_tst:
-            return
-            # while True:
-            #     display_screen_window.blit(pygame.image.load('data/death_message.png').convert(), (0, 0))
-            #     for event in pygame.event.get():
-            #         if event.type == pygame.MOUSEBUTTONDOWN and 250 <= event.pos[1] <= 450:
-            #             if 0 <= event.pos[0] <= 114:
-            #                 gameplay(level_parameters)
-            #             elif 115 <= event.pos[0] <= 228:
-            #                 return
+            while True:
+                pygame.display.flip()
+                display_screen_window.blit(pygame.image.load('data/death_message.png').convert(), (0, 0))
+                score_disp(score, 0.1)
+                for event in pygame.event.get():
+                    if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
+                        pygame.quit()
+                        sys.exit()
+                    if event.type == pygame.MOUSEBUTTONDOWN and 130 <= event.pos[1] <= 228:
+                        if 0 <= event.pos[0] <= 114:
+                            gameplay(level_parameters)
+                        elif 115 <= event.pos[0] <= 228:
+                            return
 
         p_mid_pos = p_x + game_image['player'].get_width() / 2
         for pipe in top_pips:
@@ -120,18 +124,22 @@ def gameplay(level_parameters):
         display_screen_window.blit(game_image['base'], (0, scr_height * 0.8))
         display_screen_window.blit(game_image['player'], (p_x, p_y))
 
-        list_score_numbs = [int(x) for x in list(str(score))]
-        k = 0
-        for numb in list_score_numbs:
-            k += game_image['numbers'][numb].get_width()
-        score_x = (scr_width - k) / 2
-
-        for numb in list_score_numbs:
-            display_screen_window.blit(game_image['numbers'][numb], (score_x, scr_height * 0.12))
-            score_x += game_image['numbers'][numb].get_width()
+        score_disp(score, 0.12)
 
         pygame.display.update()
         time_clock.tick(FPS)
+
+
+def score_disp(score, h):
+    list_score_numbs = [int(x) for x in list(str(score))]
+    k = 0
+    for numb in list_score_numbs:
+        k += game_image['numbers'][numb].get_width()
+    score_x = (scr_width - k) / 2
+
+    for numb in list_score_numbs:
+        display_screen_window.blit(game_image['numbers'][numb], (score_x, scr_height * h))
+        score_x += game_image['numbers'][numb].get_width()
 
 
 def colliding(p_x, p_y, up_pipes, low_pipes):

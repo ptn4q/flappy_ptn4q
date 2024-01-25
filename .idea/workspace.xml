@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что">
+    <list default="true" id="40566d63-9a14-41e0-a796-4a1cbabb7d5b" name="Changes" comment="презентация">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705953246779</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="презентация">
+      <created>1706006335032</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706006335033</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,6 +269,7 @@
     <MESSAGE value="сделал основную часть игры, осталось реализовать отображение счёта и музыку" />
     <MESSAGE value="обнова" />
     <MESSAGE value="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлено отображение счёта, звуки, меню после смерти нерабочее пока что" />
+    <MESSAGE value="презентация" />
+    <option name="LAST_COMMIT_MESSAGE" value="презентация" />
   </component>
 </project>
